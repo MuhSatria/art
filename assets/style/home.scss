@@ -1,0 +1,159 @@
+
+$color-primary: #ee85b4;
+$color-primary-light: #eeaecb;
+$color-primary-dark: #cc4180;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  // font-size: 16px;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+    to right bottom,
+    #fadbe93d,
+    #ee85b4e0),
+    url(../image/hiten.png);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0%, 100% 0%, 100% 80%, 0 100%);
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    .heading-primary {
+      color: $color-white;
+      text-transform: uppercase;
+      text-align: center;
+      // digunakan agar browser design tidak bergeser saat animation berjalan
+      backface-visibility: hidden;
+      margin-bottom: 60px;
+      &--main {
+        display: block;
+        font-size: 60px;
+        font-weight: 500;
+        letter-spacing: 35px;
+  
+        animation-name: moveLeft;
+        animation-duration: 1s;
+      }
+      &--sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 14.4px;
+        animation: moveRight 1s ease-out;
+      }
+    }
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+// css button
+.btn {
+  &:link,
+  :visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    // hover btn splash animation
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }
+  // hover btn splash animation
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    // hover btn splash animation
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--animation {
+    animation: moveBottom .5s ease-out .75s;
+    // name secon animation lalu delay
+    animation-fill-mode: backwards;
+  }
+}

@@ -1,0 +1,32 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+.section-feature {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    #fadbe93d,
+    #ee85b4e0),
+    url(../image/Bg-art.png);
+    background-size: cover;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    & > * {
+      transform: skewY(7deg);
+    }
+}
+
+.section-art {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 5rem 0;
+  margin-top: -10rem;
+}
+
+.section-story {
+  padding: 15rem 0;
+  position: relative;
+}
